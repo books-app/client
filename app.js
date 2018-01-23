@@ -11,7 +11,7 @@ $('#book-form').on('submit', function(e) {
     book_id: e.target.book_id.value,
     book_title: e.target.book_title.value,
     author: e.target.author.value,
-    ISBN: e.target.isbn.value,
+    ISBN: e.target.ISBN.value,
     pic_url: e.target.pic_url.value,
     description: e.target.description.value
   }
@@ -30,7 +30,7 @@ function pageLoad() {
   $.get(`${__API_URL__}/books`)
   .then(function(data) {
     console.log('our data:', data);
-    $('#results').empty();
+    // $('#book_firm').empty();
 
     data.rows.forEach(function(item) {
       let content = `
@@ -41,7 +41,7 @@ function pageLoad() {
         <img src = "${item.pic_url}">
         <p> description ${item.description}</p>
       `;
-      $('#results').append(content);
+      $('#book-form').append(content);
     });
   }, function(err) {
     console.error(err);
