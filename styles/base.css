@@ -1,4 +1,14 @@
+* {
+    outline: 1px black dotted;
+}
+
 body {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.content {
+    width: 650px;
     margin: 0 auto;
 }
 
@@ -18,11 +28,15 @@ body {
 #bookapp {
     font-size: 16px;
     position: absolute;
-    margin-left: 10%;
+    margin-left: 25%;
     
 }
 
 #book-form {
+    margin: 0 auto;
+}
+
+#books {
     margin: 0 auto;
 }
 #header p{

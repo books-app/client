@@ -2,6 +2,7 @@
     display: block;
     position: absolute;
     float: left;
-    width: 10%;
-    height: auto;
+    width: auto;
+    height: 90%;
+    padding: 5px;
 }
