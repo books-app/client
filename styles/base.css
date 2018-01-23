@@ -1,27 +1,25 @@
+body {
+    margin: 0 auto;
+}
+
 #header {
     width: 100%;
     background-color: grey;
     height: 100px;
     margin: 0 auto;
 }
-#icon{
-    float: left;
-}
-/* #icon p{
-    float: right;
-    margin: auto 0px; */
-}
+
 .book-title {
     background-color: lightgray;
     margin-top: 0px;
 }
 
+#bookapp {
+    font-size: 16px;
+}
+
 #book-form {
     margin: 0 auto;
-}
-#header img {
-    margin: auto;
-    padding: 10px;
 }
 #header p{
     margin-top: 30px;
