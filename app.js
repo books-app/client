@@ -1,5 +1,7 @@
 'use strict';
 
+var __API_URL__ = 'https://deploy-test-301.herokuapp.com'; 
+
 pageLoad();
 
 $('#user-form').on('submit', function(e) {
@@ -11,14 +13,18 @@ $('#user-form').on('submit', function(e) {
     ninja: e.target.ninja.value
   }
 
-  $.post('/db/person', data)
+  $.post(`${__API_URL__}/db/person`, data)
   .then(function() {
+    pageLoad();
+  })
+  .catch(function(err) {
+    console.error(err);
     pageLoad();
   });
 });
 
 function pageLoad() {
-  $.get('/db/person')
+  $.get(`${__API_URL__}/db/person`)
   .then(function(data) {
     console.log('our data:', data);
     $('#results').empty();
