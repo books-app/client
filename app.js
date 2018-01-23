@@ -30,7 +30,7 @@ function pageLoad() {
   $.get(`${__API_URL__}/books`)
   .then(function(data) {
     console.log('our data:', data);
-    $('#book-form').empty();
+    $('#books').empty();
 
     data.rows.forEach(function(item) {
       let content = `
@@ -40,7 +40,7 @@ function pageLoad() {
         <p>author name: ${item.author}</p>
         <img src = "${item.pic_url}"></div>
       `;
-      $('#book-form').append(content);
+      $('#books').append(content);
     });
   }, function(err) {
     console.error(err);
