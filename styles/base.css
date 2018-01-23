@@ -1,16 +1,23 @@
 #header {
     width: 100%;
     background-color: grey;
-    height: 80px;
+    height: 50px;
 }
 #icon{
     float: left;
 }
-#icon p{
+/* #icon p{
     float: right;
-    /* margin-left: 20px; */
+    margin: auto 0px; */
 }
 .book-title {
     background-color: lightgray;
     margin-top: 0px;
+}
+#header img {
+    margin: auto;
+    padding: 10px;
+}
+#header p{
+    margin-top: 30px;
 }
