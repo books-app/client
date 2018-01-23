@@ -39,7 +39,7 @@ function pageLoad() {
         <p>author name: ${item.author}</p>
         <img src = "${item.pic_url}"></div>
       `;
-      $('#results').append(content);
+      $('#books').append(content);
     });
   }, function(err) {
     console.error(err);
