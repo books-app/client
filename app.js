@@ -11,7 +11,7 @@ $('#book-form').on('submit', function(e) {
     book_id: e.target.book_id.value,
     book_title: e.target.book_title.value,
     author: e.target.author.value,
-    isbn: e.target.isbn.value,
+    ISBN: e.target.isbn.value,
     pic_url: e.target.pic_url.value,
     description: e.target.description.value
   }
@@ -37,7 +37,7 @@ function pageLoad() {
         <h2>book_id ${item.book_id}</h2>
         <p>title: ${item.book_title}</p>
         <p>author name: ${item.author}</p>
-        <p>isbn: ${item.isbn}</p>
+        <p>isbn: ${item.ISBN}</p>
         <img src = "${item.pic_url}">
         <p> description ${item.description}</p>
       `;
