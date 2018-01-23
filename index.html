@@ -5,19 +5,26 @@
     <title>My Cool Full Stack App</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/styles/base.css">
+   
 
   </head>
   <body>
     <div id="header">
-      <img id="icon" src="http://via.placeholder.com/30x30">
+      <img id="icon" src="https://avatars2.githubusercontent.com/u/18607604?v=3&s=200">
       <p>Book app</p>
+
     </div>
-    <!-- <form id="boock-form">
-      <input type="text" id="book-title" placeholder="book title" required>
+
+    <form id="book-form">
+      <input type="text" id="book_id" placeholder="book id" required>
+      <input type="text" id="book_title" placeholder="book title" required>
       <input type="text" id="author" placeholder="author" required>
+      <input type="text" id="ISBN" placeholder="ISBN" required>
       <input type="text" id="pic-url" placeholder="url" required>
+      <input type="text" id="description" placeholder="description" required>
       <button type="submit">Add Book</button>
-    </form> -->
+    </form> 
+
     <div id="book-form">
         <img src="http://via.placeholder.com/350x300">
         <section class="book-title">
@@ -28,6 +35,9 @@
 
 
       <section id="results"></section>
+
+    <div id="footer">
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="app.js"></script>

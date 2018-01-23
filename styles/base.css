@@ -1,7 +1,8 @@
 #header {
     width: 100%;
     background-color: grey;
-    height: 50px;
+    height: 100px;
+    margin: 0 auto;
 }
 #icon{
     float: left;
@@ -14,11 +15,22 @@
     background-color: lightgray;
     margin-top: 0px;
 }
+
+#book-form {
+    margin: 0 auto;
+}
 #header img {
     margin: auto;
     padding: 10px;
 }
 #header p{
     margin-top: 30px;
+}
+
+#footer {
+    width: 100%;
+    background-color: grey;
+    height: 100px;
+    margin: 0 auto; 
 }
 
