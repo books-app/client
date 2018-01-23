@@ -34,10 +34,10 @@ function pageLoad() {
     data.rows.forEach(function(item) {
       let content = `
 
-        <h2>book_id ${item.book_id}</h2>
+        <img src = "${item.pic_url}"</>
         <p>title: ${item.book_title}</p>
         <p>author name: ${item.author}</p>
-        <img src = "${item.pic_url}">
+        <p></p>${item.descr}</p>
       `;
       $('#books').append(content);
     });
