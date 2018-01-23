@@ -4,16 +4,19 @@ var __API_URL__ = 'https://ryanandrii-booksapp.herokuapp.com';
 
 pageLoad();
 
-$('#user-form').on('submit', function(e) {
+$('#book-form').on('submit', function(e) {
   e.preventDefault();
 
   let data = {
-    name: e.target.name.value,
-    age: e.target.age.value,
-    ninja: e.target.ninja.value
+    book_id: e.target.book_id.value,
+    book_title: e.target.book_title.value,
+    author: e.target.author.value,
+    isbn: e.target.isbn.value,
+    pic_url: e.target.pic_url.value,
+    description: e.target.description.value
   }
 
-  $.post(`${__API_URL__}/db/person`, data)
+  $.post(`${__API_URL__}/books`, data)
   .then(function() {
     pageLoad();
   })
@@ -24,16 +27,19 @@ $('#user-form').on('submit', function(e) {
 });
 
 function pageLoad() {
-  $.get(`${__API_URL__}/db/person`)
+  $.get(`${__API_URL__}/books`)
   .then(function(data) {
     console.log('our data:', data);
     $('#results').empty();
 
     data.rows.forEach(function(item) {
       let content = `
-        <h2>name: ${item.name}</h2>
-        <p>age: ${item.age}</p>
-        <p>ninja status: ${item.ninja}</p>
+        <h2>book_id ${item.book_id}</h2>
+        <p>title: ${item.book_title}</p>
+        <p>author name: ${item.author}</p>
+        <p>isbn: ${item.isbn}</p>
+        <img src = "${item.pic_url}">
+        <p> description ${item.description}</p>
       `;
       $('#results').append(content);
     });
