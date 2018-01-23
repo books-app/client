@@ -30,7 +30,7 @@ function pageLoad() {
   $.get(`${__API_URL__}/books`)
   .then(function(data) {
     console.log('our data:', data);
-    // $('#book_firm').empty();
+    $('#book-form').empty();
 
     data.rows.forEach(function(item) {
       let content = `
