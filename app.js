@@ -29,7 +29,7 @@ function pageLoad() {
   $.get(`${__API_URL__}/books`)
   .then(function(data) {
     console.log('our data:', data);
-    $('#results').empty();
+    // $('#results').empty();
 
     data.rows.forEach(function(item) {
       let content = `
