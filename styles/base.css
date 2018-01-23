@@ -1,23 +1,16 @@
-@media screen and (max-width: 800px) {
-
-    body {
-         width: 480px;
-         margin: 0 auto;
-    }
-    
-    h1, h2, div {
-        outline: 1px dotted black;
-        margin: 0;
-    }
-
-    h1 {
-        background-image: url("http://placehold.it/480x75");
-        width: 480px;
-        height: 75px;  
-    }
-
-    div {
-        background-image: url("http://placehold.it/480x125");
-        width: 480px;
-        height: 125px;
-    }
+#header {
+    width: 100%;
+    background-color: grey;
+    height: 80px;
+}
+#icon{
+    float: left;
+}
+#icon p{
+    float: right;
+    /* margin-left: 20px; */
+}
+.book-title {
+    background-color: lightgray;
+    margin-top: 0px;
+}

@@ -1,52 +1,33 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
- <head>
-   <meta charset="UTF-8">
-   <title>Lab 10</title>
-   <meta name="viewport" content="width=device-width, initial-scale=1">
-   <link rel="stylesheet" href="styles/reset.css">
-   <link rel="stylesheet" href="styles/icons.css">
-   <link rel="stylesheet" href="styles/base.css">
-   <link rel="stylesheet" href="styles/layout.css">
-   <link rel="stylesheet" href="styles/modules.css">
-   <link rel="icon" type="image/x-icon" href="https://avatars2.githubusercontent.com/u/18607604?v=3&s=200">
-
-
-    <h1>books app</h1>
-    <h2>my books</h2>
-
-    <div>
-        <p>book title</p>
-        <p>author</p>
-    </div>
-
-
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.6/marked.min.js"></script>
-   <script src="vendor/scripts/highlight.pack.js"></script>
-   <script src="/scripts/article.js"></script>
-   <script src="/scripts/articleView.js"></script>
- </body>
-</html> -->
-
-
 <!DOCTYPE html>
+
 <html>
   <head>
     <title>My Cool Full Stack App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/styles/base.css">
+
   </head>
   <body>
-    <main>
-      <form id="user-form">
-        <input type="text" id="name" placeholder="name" required>
-        <input type="text" id="age" placeholder="age" required>
-        <input type="text" id="ninja" placeholder="are you a ninja" required>
-        <button type="submit">Add User</button>
-      </form>
+    <div id="header">
+      <img id="icon" src="http://via.placeholder.com/30x30">
+      <p>Book app</p>
+    </div>
+    <form id="boock-form">
+      <input type="text" id="book-title" placeholder="book title" required>
+      <input type="text" id="author" placeholder="author" required>
+      <input type="text" id="pic-url" placeholder="url" required>
+      <button type="submit">Add Book</button>
+    </form>
+    <div id="book-form">
+        <img src="http://via.placeholder.com/350x300">
+        <section class="book-title">
+          <h2>book title</h2>
+          <p>author</p>
+        </section>
+    </div>
+
 
       <section id="results"></section>
-    </main>
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="app.js"></script>
