@@ -8,10 +8,9 @@ $('#book-form').on('submit', function(e) {
   e.preventDefault();
 
   let data = {
-    book_id: e.target.book_id.value,
     book_title: e.target.book_title.value,
     author: e.target.author.value,
-    ISBN: e.target.ISBN.value,
+    ISBN: e.target.isbn.value,
     pic_url: e.target.pic_url.value,
     descr: e.target.descr.value
   }
@@ -30,17 +29,17 @@ function pageLoad() {
   $.get(`${__API_URL__}/books`)
   .then(function(data) {
     console.log('our data:', data);
-    // $('#book_firm').empty();
+    // $('#results').empty();
 
     data.rows.forEach(function(item) {
       let content = `
 
-       <div> <h2>book_id ${item.book_id}</h2>
+        <h2>book_id ${item.book_id}</h2>
         <p>title: ${item.book_title}</p>
         <p>author name: ${item.author}</p>
-        <img src = "${item.pic_url}"></div>
+        <img src = "${item.pic_url}">
       `;
-      $('#book-form').append(content);
+      $('#books').append(content);
     });
   }, function(err) {
     console.error(err);
