@@ -34,12 +34,13 @@ function pageLoad() {
 
     data.rows.forEach(function(item) {
       let content = `
-        <h2>book_id ${item.book_id}</h2>
+
+       <div> <h2>book_id ${item.book_id}</h2>
         <p>title: ${item.book_title}</p>
         <p>author name: ${item.author}</p>
         <p>isbn: ${item.ISBN}</p>
         <img src = "${item.pic_url}">
-        <p> descr ${item.descr}</p>
+        <p> descr ${item.descr}</p></div>
       `;
       $('#book-form').append(content);
     });
