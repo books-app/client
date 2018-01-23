@@ -1,6 +1,6 @@
 'use strict';
 
-var __API_URL__ = 'https://deploy-test-301.herokuapp.com'; 
+var __API_URL__ = 'https://ryanandrii-booksapp.herokuapp.com/'; 
 
 pageLoad();
 
