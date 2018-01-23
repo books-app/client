@@ -8,7 +8,6 @@ $('#book-form').on('submit', function(e) {
   e.preventDefault();
 
   let data = {
-    book_id: e.target.book_id.value,
     book_title: e.target.book_title.value,
     author: e.target.author.value,
     ISBN: e.target.ISBN.value,
@@ -30,7 +29,7 @@ function pageLoad() {
   $.get(`${__API_URL__}/books`)
   .then(function(data) {
     console.log('our data:', data);
-    // $('#books').empty();
+    $('#results').empty();
 
     data.rows.forEach(function(item) {
       let content = `
@@ -40,7 +39,7 @@ function pageLoad() {
         <p>author name: ${item.author}</p>
         <img src = "${item.pic_url}"></div>
       `;
-      $('#books').append(content);
+      $('#results').append(content);
     });
   }, function(err) {
     console.error(err);
