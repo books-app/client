@@ -13,7 +13,7 @@ $('#book-form').on('submit', function(e) {
     author: e.target.author.value,
     ISBN: e.target.ISBN.value,
     pic_url: e.target.pic_url.value,
-    description: e.target.description.value
+    descr: e.target.descr.value
   }
 
   $.post(`${__API_URL__}/books`, data)
@@ -39,7 +39,7 @@ function pageLoad() {
         <p>author name: ${item.author}</p>
         <p>isbn: ${item.ISBN}</p>
         <img src = "${item.pic_url}">
-        <p> description ${item.description}</p>
+        <p> descr ${item.descr}</p>
       `;
       $('#book-form').append(content);
     });
