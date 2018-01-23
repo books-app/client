@@ -1,4 +1,6 @@
 #icon{
+    display: block;
+    position: absolute;
     float: left;
     width: 10%;
     height: auto;
