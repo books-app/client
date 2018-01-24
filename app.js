@@ -37,7 +37,7 @@ function pageLoad() {
         <div id='book'><img src = "${item.pic_url}"</div>
         <p>title: ${item.book_title}</p>
         <p>author name: ${item.author}</p>
-        <p></p>${item.descr}</p></div>
+        <p>${item.descr}</p></div>
       `;
       $('#books').append(content);
     });
