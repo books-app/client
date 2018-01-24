@@ -39,7 +39,7 @@ function pageLoad() {
         <p>author name: ${item.author}</p>
         <p>${item.descr}</p></div>
       `;
-      $('#books').append(content);
+      $('#results').append(content);
     });
   }, function(err) {
     console.error(err);
