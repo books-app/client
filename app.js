@@ -2,7 +2,7 @@
 
 var __API_URL__ = 'https://ryanandrii-booksapp.herokuapp.com'; 
 
-pageLoad();
+
 
 $('#book-form').on('submit', function(e) {
   e.preventDefault();
@@ -46,3 +46,7 @@ function pageLoad() {
   });
 }
 
+$( document ).ready(function(){
+  pageLoad();
+  
+})
