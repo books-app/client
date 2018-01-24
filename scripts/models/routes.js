@@ -1,8 +1,8 @@
 'use strict';
 
-page('client/', books.init);
+page('/client/', books.init);
 // page('/onebook', onebook.init);
 
-page('client/addbook', add.init);
+page('/client/addbook', add.init);
 
 page();
