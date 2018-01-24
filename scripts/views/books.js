@@ -17,7 +17,7 @@
         <img src = "${item.pic_url}">
         <p>title: ${item.book_title}</p>
         <p>author name: ${item.author}</p>
-        <button value = "${item.isbn}">more deatils</button>
+        <button value = "${item.id}">more deatils</button>
         </div>
       `;
       $('#results').append(content);
