@@ -5,10 +5,10 @@
   const books = {};
 
   books.init = function() {
+    $('#results').empty();
     $.get(`${__API_URL__}/books`)
   .then(function(data) {
     console.log('our data:', data);
-    // $('#results').empty();
 
     data.rows.forEach(function(item) {
       let content = `
