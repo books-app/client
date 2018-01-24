@@ -7,15 +7,18 @@
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/icons.css">
     <link rel="stylesheet" href="styles/reset.css">
-   
-
   </head>
   <body>
     <div id="header">
       <img id="icon" src="https://avatars2.githubusercontent.com/u/18607604?v=3&s=200">
       <p id="bookapp">Book app</p>
-
+      
     </div>
+
+    <ul>
+      <li><a href="/">view all books</a></li>
+      <li><a href="/addbook">add a book</a></li>
+    </ul>
 
     <form id="book-form">
       <input type="text" id="book_title" placeholder="book title" required>
@@ -25,24 +28,14 @@
       <input type="text" id="descr" placeholder="description" required>
       <button type="submit">Add Book</button>
     </form> 
-
-
-
-    <!-- <div id="books">
-        <img class="img" src="http://via.placeholder.com/350x300">
-        <section class="book-title">
-          <h2>book title</h2>
-          <p>author</p>
-        </section>
-    </div> -->
-
-
       <section id="results"></section>
-
-    <div id="footer">
-    </div>
-
+    <div id="footer"></div>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
     <script src="app.js"></script>
+
+    <script src="/scripts/views/form.js"></script>
+    <script src="scripts/views/books.js"></script>
+    <script src="scripts/models/controllers/routes.js"></script>
   </body>
 </html>
