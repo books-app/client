@@ -1,32 +1,31 @@
-// 'use strict';
 
-// (function(module) {
+'use strict';
 
-//   const books = {};
+(function(module) {
 
-//   books.init = function() {
-//     $('#results').empty();
-//     $.get(`${__API_URL__}/books`)
-//   .then(function(data) {
-//     console.log('our data:', data);
+  const books = {};
 
-//     data.rows.forEach(function(item) {
-//       let content = `
-//         <div id='book'>
-//         <img src = "${item.pic_url}">
-//         <p>title: ${item.book_title}</p>
-//         <p>author name: ${item.author}</p>
-//         <button id="book-but" value = "${item.id}">more deatils</button>
-//         </div>
-//       `;
-//       $('#results').append(content);
-//     });
-//   }, function(err) {
-//     console.error(err);
-//   })}
+  books.init = function() {
+    $.get(`${__API_URL__}/books`)
+  .then(function(data) {
+    console.log('our data:', data);
+    // $('#results').empty();
 
-//   module.books = books;
+    data.rows.forEach(function(item) {
+      let content = `
+        <div id='book'>
+        <img src = "${item.pic_url}">
+        <p>title: ${item.book_title}</p>
+        <p>author name: ${item.author}</p>
+        <button value = '${ite.isbn}'>more deatils</button>
+        </div>
+      `;
+      $('#results').append(content);
+    });
+  }, function(err) {
+    console.error(err);
+  })}
 
-// })(window);
+  module.books = books;
 
-
+})(window);

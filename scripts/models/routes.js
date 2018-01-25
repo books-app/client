@@ -1,7 +1,7 @@
-// 'use strict';
+'use strict';
 
-// page('/client/', books.init);
-// // page('/client/onebook', onebook.init);
-// page('/client/addbook', add.init);
+page('/', books.init);
+// page('/onebook', onebook.init);
+page('/addbook', add.init);
 
-// page();
+page();
