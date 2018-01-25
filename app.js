@@ -47,8 +47,10 @@ function pageLoad() {
   });
 }
 
- function oneInit () {
-  $('#book-form').css('display','block');
+
+$(document).ready(function{
+  $('#onebook').on('click', function(){
+    $('#book-form').css('display','block');
 
   $('#book-form').on('submit', function(e) {
     e.preventDefault();
@@ -70,8 +72,6 @@ function pageLoad() {
       books.init();
     });
   });
-
-}
-
-oneInit();
+  })
+})
 
