@@ -41,8 +41,8 @@ var __API_URL__ = 'https://ryanandrii-booksapp.herokuapp.com';
 //       $('#results').append(content);
 //     });
 //   }, function(err) {
-//     console.error(err);
-//   });
-}
+// //     console.error(err);
+// //   });
+// }
 
-pageLoad();
+// pageLoad();
