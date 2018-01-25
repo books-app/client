@@ -27,7 +27,7 @@
   console.error(err);
 })}
 
-module.onebook = onebooks;
+module.onebook = onebook;
 
 })(window);
   
