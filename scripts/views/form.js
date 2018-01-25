@@ -20,11 +20,11 @@
     
       $.post(`${__API_URL__}/books`, data)
       .then(function() {
-        pageLoad();
+        books.init();
       })
       .catch(function(err) {
         console.error(err);
-        pageLoad();
+        books.init();
       });
     });
 
