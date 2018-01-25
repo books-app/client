@@ -32,15 +32,13 @@ function pageLoad() {
     // $('#results').empty();
 
     data.rows.forEach(function(item) {
-      let content = `
-      <div id='book'>
-      <img src = "${item.pic_url}">
-      <p>title: ${item.book_title}</p>
-      <p>author name: ${item.author}</p>
-      <button id="book-but" value ="${item.id}">more deatils</button>
-      </div>
-      `;
-      $('#results').append(content);
+      let content = {
+        id: item.id,
+        pic_url : item.pic_url,
+        title : item.title,
+        author: item.tuthor
+      }
+      var template = Handlebars.compile(content);
     });
   }, function(err) {
     console.error(err);

@@ -14,12 +14,20 @@
       <p id="bookapp">Book app</p>
       
     </div>
-
+    
     <ul>
       <li><a href="/client/">view all books</a></li>
       <li id="onebook"><a href="/client/">add a book</a></li>
     </ul>
 
+    <div class="books">
+        <section>{{pic_url}}</section>
+        <p>{{title}}</p>
+        <p>{{author}}</p>
+        <button id="{{id}}">more details</button>
+        </div>
+        
+    
     <form id="book-form">
       <input type="text" id="book_title" placeholder="book title" required>
       <input type="text" id="author" placeholder="author" required>
@@ -28,11 +36,11 @@
       <input type="text" id="descr" placeholder="description" required>
       <button type="submit">Add Book</button>
     </form> 
-      <section id="results"></section>
-
+    <section id="results"></section>
+    
     <div id="footer"></div>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>  
-  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.amd.js"></script>    
     <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
     <script src="app.js"></script>
 
