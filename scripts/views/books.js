@@ -5,7 +5,7 @@
 
   const books = {};
 
-  function pageLoad() {
+  books.init = function pageLoad() {
     $.get(`${__API_URL__}/books`)
     .then(function(data) {
       console.log('our data:', data);
@@ -13,7 +13,7 @@
   
       data.rows.forEach(function(item) {
         let content = `
-        
+
           <div id='book'>
           <img src = "${item.pic_url}">
           <p>title: ${item.book_title}</p>
