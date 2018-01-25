@@ -1,10 +1,11 @@
 'use strict';
 
 (function(module) {
-  const add= {};
+  const add = {};
 
   add.init = function() {
     $('#book-form').css('display','block');
+    $('#results').css('display', 'none');
 
     $('#book-form').on('submit', function(e) {
         e.preventDefault();
