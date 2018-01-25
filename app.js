@@ -49,6 +49,7 @@ function pageLoad() {
 
 
 $(document).ready(function() {
+  pageLoad()
   $('#onebook').on('click', function(){
     $('#book-form').css('display','block');
   });
