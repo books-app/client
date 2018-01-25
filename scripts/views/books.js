@@ -5,7 +5,7 @@
 
   const books = {};
 
-  books.init = function pageLoad() {
+  books.init = function () {
     $.get(`${__API_URL__}/books`)
     .then(function(data) {
       console.log('our data:', data);
