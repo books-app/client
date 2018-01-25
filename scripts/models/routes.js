@@ -1,7 +1,8 @@
-// 'use strict';
+'use strict';
 
 
 
-// page('/', ctx =>  );
-// // // // page('/onebook', onebook.init);
-// // page('/:addbook', oneInit());
+page('/', pageLoad() );
+// // // page('/onebook', onebook.init);
+// page('/addbook', oneInit());
+page();
