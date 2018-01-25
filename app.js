@@ -48,10 +48,10 @@ function pageLoad() {
 }
 
 
-$(document).ready(function{
+$(document).ready(function() {
   $('#onebook').on('click', function(){
     $('#book-form').css('display','block');
-
+  });
   $('#book-form').on('submit', function(e) {
     e.preventDefault();
   
@@ -72,6 +72,5 @@ $(document).ready(function{
       books.init();
     });
   });
-  })
-})
+  });
 
