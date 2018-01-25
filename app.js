@@ -45,5 +45,4 @@ function pageLoad() {
   });
 }
 
-function singlebook(){
-}
+pageLoad();
