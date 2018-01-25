@@ -2,6 +2,6 @@
 
 
 
-// page('/', fetchAll.init(ctx.next), books.init(ctx, next) );
+page('/', pageLoad() );
 // // // page('/onebook', onebook.init);
 // // page('/addbook', add.init);
