@@ -20,7 +20,7 @@
         <p>${data.descr}</p>
         </div>
         `;
-        $('#results').empty();
+        // $('#results').empty();
         $('#results').append(book);
     });
 }, function(err) {
