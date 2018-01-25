@@ -13,6 +13,7 @@
   
       data.rows.forEach(function(item) {
         let content = `
+        
           <div id='book'>
           <img src = "${item.pic_url}">
           <p>title: ${item.book_title}</p>
