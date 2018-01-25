@@ -59,4 +59,8 @@ body {
     margin: 0 auto; 
 }
 
+#book-form {
+    display: none;
+}
+
 
