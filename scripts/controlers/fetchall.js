@@ -14,4 +14,5 @@
     }
     module.fetchAll = fetchAll;
 
+
 })(window);
