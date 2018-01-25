@@ -2,6 +2,6 @@
 
 
 
-page('/', app.books.init );
+page('/', fetchAll, books );
 // // page('/onebook', onebook.init);
 // page('/addbook', add.init);
