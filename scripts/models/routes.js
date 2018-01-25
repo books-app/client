@@ -2,6 +2,6 @@
 
 
 
-page('/', fetchAll.init, books.init );
+page('/', fetchAll.init(ctx.next), books.init(ctx, next) );
 // // page('/onebook', onebook.init);
 // page('/addbook', add.init);

@@ -8,8 +8,8 @@
 
   $('#results').empty();  
   
-  books.init = function (ctx, next) {
-      ctx.rows.forEach(function(item) {
+  books.init = function (data) {
+      data.rows.forEach(function(item) {
         let content = `        
         <div id='book'>
         <img src = "${item.pic_url}">
