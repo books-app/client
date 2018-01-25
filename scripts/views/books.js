@@ -13,7 +13,7 @@ var app = app || {};
     $.get(`${__API_URL__}/books`)
     .then(function(data) {
       console.log('our data:', data);
-      ata.rows.forEach(function(item) {
+      data.rows.forEach(function(item) {
         let content = `        
         <div id='book'>
         <img src = "${item.pic_url}">
