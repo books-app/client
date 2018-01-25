@@ -25,24 +25,24 @@ var __API_URL__ = 'https://ryanandrii-booksapp.herokuapp.com';
 //   });
 // });
 
-function pageLoad() {
-  $.get(`${__API_URL__}/books`)
-  .then(function(data) {
-    console.log('our data:', data);
-    // $('#results').empty();
+// function pageLoad() {
+//   $.get(`${__API_URL__}/books`)
+//   .then(function(data) {
+//     console.log('our data:', data);
+//     // $('#results').empty();
 
-    data.rows.forEach(function(item) {
-      let content = `
+//     data.rows.forEach(function(item) {
+//       let content = `
 
-        <div id='book'><img src = "${item.pic_url}">
-        <p>title: ${item.book_title}</p>
-        <p>author name: ${item.author}</p></div>
-      `;
-      $('#results').append(content);
-    });
-  }, function(err) {
-    console.error(err);
-  });
+//         <div id='book'><img src = "${item.pic_url}">
+//         <p>title: ${item.book_title}</p>
+//         <p>author name: ${item.author}</p></div>
+//       `;
+//       $('#results').append(content);
+//     });
+//   }, function(err) {
+//     console.error(err);
+//   });
 }
 
 pageLoad();
