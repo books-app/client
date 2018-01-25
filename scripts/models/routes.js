@@ -4,4 +4,4 @@
 
 page('/', pageLoad() );
 // // // page('/onebook', onebook.init);
-page('/:addbook', oneInit());
+// page('/:addbook', oneInit());
