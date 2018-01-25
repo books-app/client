@@ -1,9 +1,12 @@
 
 'use strict';
 
+var app = app || {};
+
 (function(module) {
 
   const books = {};
+
   $('#results').empty();  
   
   books.init = function () {
@@ -27,4 +30,4 @@
 
   module.books = books;
 
-})(window);
+})(app);
