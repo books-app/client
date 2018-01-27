@@ -14,20 +14,20 @@ var app = app || {};
   bookView.initIndexPage = function() {
     reset();
     $('.book-view').show();
-    $('#book-list').empty();
-    app.Book.all.map(book => $('#book-list').append(book.toHtml()));
+    $('#all-books').empty();
+    app.Book.all.map(book => $('#all-books').append(book.toHtml()));
   }
     // Initializes and handles the form for adding a new book
     bookView.initAddForm = function() {
         reset();
         $('.add-view').show();
-        $('#add-form').on('submit', function(event) {
+        $('#new-book').on('submit', function(event) {
           event.preventDefault();
           let book = {
             title: event.target.title.value,
             author: event.target.author.value,
             isbn: event.target.isbn.value,
-            image_url: event.target.image_url.value,
+            url: event.target.url.value,
             description: event.target.description.value,
           };
           module.Book.createBook(book);
@@ -41,17 +41,16 @@ var app = app || {};
         $('#updateTitle').val(ctx.title);
         $('#updateAuthor').val(ctx.author);
         $('#updateISBN').val(ctx.isbn);
-        $('#updateImage_url').val(ctx.image_url);
+        $('#updateurl').val(ctx.url);
         $('#updateDescription').val(ctx.description);
         $('#update-form').on('submit', function(event) {
-          console.log('inside updateForm listener');
           event.preventDefault();
           let book = {
-            book_id: ctx.book_id,
+            id: ctx.id,
             title: event.target.title.value,
             author: event.target.author.value,
             isbn: event.target.isbn.value,
-            image_url: event.target.image_url.value,
+            url: event.target.url.value,
             description: event.target.description.value,
           };
           module.Book.updateBook(ctx, book);
