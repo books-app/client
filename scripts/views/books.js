@@ -21,7 +21,7 @@ var app = app || {};
 
   //Grabs all books
   Book.fetchAll = callback =>
-    $.get(`${__API_URL__}/books/`)
+    $.get(`${__API_URL__}/books`)
       .then(Book.loadAll)
       .then(callback)
       .catch(errorCallback);
@@ -36,7 +36,7 @@ var app = app || {};
 
   //This receives the book object from the function on book-view.js.
   Book.createBook = book =>
-    $.post(`${__API_URL__}/books/`, book)
+    $.post(`${__API_URL__}/books`, book)
       .then(() => page('/'))
       .catch(errorCallback);
 
@@ -53,7 +53,7 @@ var app = app || {};
   // //This updates a book
   Book.updateBook = (ctx, book) => {
     $.ajax({
-      url: `${__API_URL__}/books/`,
+      url: `${__API_URL__}/books`,
       method: 'PUT',
       data: {
         id: book.id,
