@@ -23,6 +23,7 @@ var app = app || {};
   Book.fetchAll = callback =>
     $.get(`${__API_URL__}/books`)
       .then(Book.loadAll)
+      .then(console.log(hi))
       .then(callback);
   //Grabs one book
   Book.fetchOne = (ctx, callback) => {
@@ -42,7 +43,7 @@ var app = app || {};
       url: `${__API_URL__}/books/${ctx.id}`,
       method: 'DELETE'
     })
-      .then(console.log('200'))
+      .then(console.log('hi'))
       .then(() => page('/'));
   };
 
