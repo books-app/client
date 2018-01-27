@@ -23,22 +23,18 @@ var app = app || {};
   Book.fetchAll = callback =>
     $.get(`${__API_URL__}/books`)
       .then(Book.loadAll)
-      .then(callback)
-      .catch(errorCallback);
-
+      .then(callback);
   //Grabs one book
   Book.fetchOne = (ctx, callback) => {
     $.get(`${__API_URL__}/books/${ctx.params.id}`)
       .then(results => ctx.book = results[0])
-      .then(callback)
-      .catch(errorCallback);
+      .then(callback);
   }
 
   //This receives the book object from the function on book-view.js.
   Book.createBook = book =>
     $.post(`${__API_URL__}/books`, book)
-      .then(() => page('/'))
-      .catch(errorCallback);
+      .then(() => page('/'));
 
   //Deletes a single book
   Book.deleteBook = (ctx) => {
@@ -46,7 +42,7 @@ var app = app || {};
       url: `${__API_URL__}/books/${ctx.id}`,
       method: 'DELETE'
     })
-      .then(console.log)
+      .then(console.log('200'))
       .then(() => page('/'));
   };
 

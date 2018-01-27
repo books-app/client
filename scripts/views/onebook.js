@@ -5,10 +5,6 @@ var app = app || {};
   const bookView = {};
 
   //This resets the state of the page every time one of these init funtions is called.
-  function reset() {
-    $('.container').hide();
-    $('#login').hide();
-  }
 
   //This inititalizes the homepage.
   bookView.initIndexPage = function() {
