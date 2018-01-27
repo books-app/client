@@ -23,7 +23,7 @@ var app = app || {};
   Book.fetchAll = callback =>
     $.get(`${__API_URL__}/books`)
       .then(Book.loadAll)
-      .then(console.log(hi))
+      .then(console.log('hi'))
       .then(callback);
   //Grabs one book
   Book.fetchOne = (ctx, callback) => {
