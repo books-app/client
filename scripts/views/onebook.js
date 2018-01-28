@@ -50,7 +50,7 @@ var app = app || {};
     next();
 }
 
-module.bookView = bookView;
+module.view = view;
 })(app)
 
 
