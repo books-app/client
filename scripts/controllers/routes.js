@@ -1,10 +1,9 @@
 'use strict';
 
-page('/', homeView.init, book.fetchAll );
-// app.Book.fetchAll, app.Book.loadAll, app.Book.renderAll);
-// page('/new', newBookView.init);
-// page('/book/:book_id', singleBookView.init, app.Book.fetchSingle, app.Book.loadSingle, app.Book.renderSingle, app.Book.prototype.deleteRecord);
-// page('/book/:book_id/edit', editBookView.init, app.Book.fetchSingle, app.Book.loadSingle, app.Book.renderEditSingle, app.Book.prototype.updateRecord);
+page('/', homeView.init, books.fetchAll, books.loadAll, books.reander);
+page('/new', newBookView.init);
+page('/book/:book_id', singleBookView.init, books.fetchSingle,books.loadSingle, books.renderSingle, books.delete);
+// page('/book/:book_id/edit', editBookView.init, books.fetchSingle, books.loadSingle, books.renderEditSingle, books.updatebook);
 
 
 page();

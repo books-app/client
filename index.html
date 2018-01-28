@@ -39,14 +39,14 @@
         
         <main>
             <section id="homeView">
-                <section id="books">
+                <section id="books" class="tab-content">
                 </section>
             </section>
 
             <section id="singleBookView">
-                <section id="individualBook">
+                <section id="individualBook" class="tab-content">
                 </section>
-                <!-- <a id="updateButton" href="">Edit</a> -->
+                <a id="updateButton" href="">Edit</a>
             </section>
             <section id="editBookView">
                 <section id="editBook" class="tab-content">
@@ -61,14 +61,18 @@
                 </section>
             </section>
 
-            <form id="book-form">
-                    <input type="text" id="title" placeholder="book title" required>
-                    <input type="text" id="author" placeholder="author" required>
-                    <input type="text" id="isbn" placeholder="isbn" required>
-                    <input type="text" id="image_url" placeholder="url" required>
-                    <input type="text" id="descr" placeholder="description" required>
-                    <button type="submit">Add Book</button>
-                  </form> 
+            <section id="newBookView">
+                <section id="newBook" class="tab-content">
+                 <form id="newBookForm">
+                   <input type="text" id="title" name="title" placeholder="Book title" required>
+                   <input type="text" id="author" name="author" placeholder="Book author" required>
+                   <input type="text" id="isbn" name="isbn" placeholder="Book ISBN">
+                   <input type="text" id="image_url" name="image_url" placeholder="Book image URL">
+                   <textarea rows="10" id="description" name="description" placeholder="Book description" required></textarea>
+                   <button type="submit">Submit and return to the home page</button>
+                    </form>
+                </section>
+            </section>
         </main>
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>

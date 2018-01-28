@@ -1,132 +1,133 @@
 'use strict';
-var app = app || {};
 
 (function(module) {
-    const book = {};
+    const books = {};
 
-    var __API_URL__ = 'https://ryanandrii-booksapp.herokuapp.com';    
+    var __API_URL__ = 'https://ryanandrii-booksapp.herokuapp.com/';    
 
-    // function Book (rawBookDataObj) {
-    //     Object.keys(rawBookDataObj).forEach(key => this[key] = rawBookDataObj[key]);
-    // }
+    function Book (rawBookDataObj) {
+        Object.keys(rawBookDataObj).forEach(key => this[key] = rawBookDataObj[key]);
+    }
 
-    // Book.all = [];
-    // Book.single = [];
+    books.all= [];
+    books.single = [];
 
-    // Book.prototype.toHtml = function() {
-    //     var template = Handlebars.compile($('#book-template').text());
-    //     return template(this);
-    // }
-
-    // Book.renderAll = (ctx, next) => {
-    //     $('#books').empty();
-    //     app.Book.all.map(book => $('#books').append(book));
-    // }
-
-    // Book.loadAll = (ctx, next) => {
-    //     Book.all = ctx.results.map(bookObject => new Book(bookObject));
-    //     next();
-    // }
-    book.fetchAll = (ctx, next) => {
+    /// all books
+    
+    books.fetchAll = (ctx, next) => {
         $.get(`${__API_URL__ }/v1/books`)
             .then(results => {
-                console.log(results);
                 ctx.results = results;
                 next();
             });
     }
 
-    // Book.prototype.singleHtml = function() {
-    //     var template = Handlebars.compile($('#individual-template').text());
-    //     return template(this);
-    // }
+    books.loadAll = (ctx, next) => {
+        books.all= ctx.results.map(bookObject => new Book(bookObject));
+        next();
+    }
 
-    // Book.renderSingle = (ctx, next) => {
-    //     $('#individualBook').empty();
-    //     app.Book.single.map(book => $('#individualBook').append(book.singleHtml()));
-    //     $('#updateButton').attr('href', `/book/${ctx.params.book_id}/edit`)
-    //     next();
-    // }
+    books.reander = (ctx, next) => {
+        $('#books').empty();
+        books.all.map(book => $('#books').append(books.toHtml()));
+    }
 
-    // Book.loadSingle = (ctx, next) => {
-    //     console.log(ctx.results);
-    //     Book.single = [];
-    //     Book.single = ctx.results.map(bookObject => new Book(bookObject));
-    //     next();
-    // }
 
-    // Book.fetchSingle = (ctx, next)  => {
-    //     $.get(`${__API_URL__}/v1/books/${ctx.params.book_id}`)
-    //        .then(results => {
-    //            ctx.results = results;
-    //            next();
-    //        });
+    books.toHtml = function() {
+        var template = Handlebars.compile($('#book-template').text());
+        return template(this);
+    }
+
+    /// one book
+
+    books.fetchSingle = (ctx, next)  => {
+        $.get(`${__API_URL__}/v1/books/${ctx.params.book_id}`)
+           .then(results => {
+               ctx.results = results;
+               next();
+           });
+    };
+
+    books.renderSingle = (ctx, next) => {
+        $('#individualBook').empty();
+        books.single.map(book => $('#individualBook').append(books.singleHtml()));
+        $('#updateButton').attr('href', `/book/${ctx.params.book_id}/edit`)
+        next();
+    }
+
+    books.loadSingle = (ctx, next) => {
+        console.log(ctx.results);
+       books.single = [];
+       books.single = ctx.results.map(bookObject => new Book(bookObject));
+        next();
+    }
+   
+
+    books.singletoHtml = function() {
+        var template = Handlebars.compile($('#individual-template').text());
+        return template(this);
+    }
+    
+    ///add book 
+
+    // books.addbook = (ctx, next) => {
+    //     $.ajax({
+    //         url: `${__API_URL__ }/v1/books`,
+    //         method: 'POST',
+    //         data: {
+    //           title: ctx.title,
+    //           author: ctx.author,
+    //           isbn: ctx.isbn,
+    //           image_url: ctx.image_url,
+    //           description: ctx.description
+    //         },
+    //         success: window.location = '../',
+    //     })
     // };
 
-    book.insertRecord = function(){
+    /////delete book//////////???????????????????????????????
 
-        $('#book-form').on('submit', function(e) {
-        e.preventDefault();
-        
-        let data = {
-            title: e.target.title.value,
-            author: e.target.author.value,
-            isbn: e.target.isbn.value,
-            image_url: e.target.image_url.value,
-            description: e.target.description.value
-        }
-        
-        $.post(`${__API_URL__}/v1/books`, data)
-        .then(function() {
-            console.log('hi')
-        })
-        .catch(function(err) {
-            console.error(err);
+    books.delete = (ctx, next) => {
+        let book_id = ctx.params.book_id;
+
+        console.log(book_id);
+        $('.bookListing').on('click', $('#deleteButton'), function() {
+            $.ajax({
+                url: `${__API_URL__}/v1/books/${book_id}`,
+                method: 'DELETE',
+                success: function() {
+                    window.location = '../';
+                }
+            })
         });
-    });
-}
+    }
 
-    // Book.prototype.deleteRecord = (ctx, next) => {
-    //     let book_id = ctx.params.book_id;
-    //     $('.bookListing').on('click', $('#deleteButton'), function() {
-    //         $.ajax({
-    //             url: `${__API_URL__}/v1/books/${book_id}`,
-    //             method: 'DELETE',
-    //             success: function() {
-    //                 window.location = '../';
-    //             }
-    //         })
-    //     });
-    // }
+    books.renderEditSingle = (ctx, next) => {
+        $('#author').val(books.single[0].author);
+        $('#description').val(books.single[0].description);
+        $('#image_url').val(books.single[0].image_url);
+        $('#isbn').val(books.single[0].isbn);
+        $('#title').val(books.single[0].title);
+        next();
+    }
 
-    // Book.renderEditSingle = (ctx, next) => {
-    //     $('#author').val(Book.single[0].author);
-    //     $('#description').val(Book.single[0].description);
-    //     $('#image_url').val(Book.single[0].image_url);
-    //     $('#isbn').val(Book.single[0].isbn);
-    //     $('#title').val(Book.single[0].title);
-    //     next();
-    // }
+    books.updatebook = (ctx, next) => {
+        let book_id = ctx.params.book_id;
+        $('#updateBookForm').on('submit', function(e) {
+            e.preventDefault();
+            $.ajax({
+                url: `${__API_URL__}/v1/books/${book_id}/edit`,
+                method: 'PUT',
+                data: {
+                  title: $('#title').val(),
+                  author: $('#author').val(),
+                  isbn: $('#isbn').val(),
+                  image_url: $('#image_url').val(),
+                  description: $('#description').val()
+                }
+            })
+        });
+    }
 
-    // Book.prototype.updateRecord = (ctx, next) => {
-    //     let book_id = ctx.params.book_id;
-    //     console.log('hi');
-    //     console.log(book_id);
-    //     $('#updateBookForm').on('submit', function(e) {
-    //         e.preventDefault();
-    //         $.ajax({
-    //             url: `${__API_URL__}/v1/books/${book_id}/edit`,
-    //             method: 'PUT',
-    //             data: {
-    //               title: $('#title').val(),
-    //               author: $('#author').val(),
-    //               isbn: $('#isbn').val(),
-    //               image_url: $('#image_url').val(),
-    //               description: $('#description').val()
-    //             }
-    //         })
-    //     });
-    // }
-
-    module.book = book;
+    module.books = books;
 })(window);
