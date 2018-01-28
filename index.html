@@ -57,33 +57,13 @@
 
             <section id="editBookView">
                 <section id="editBook" class="tab-content">
-                    <p>UPDATE BOOK VIEW</p>
                         <form action="#" id="updateBookForm">
-                            <fieldset>
-                                <label for="title">Title: </label>
-                                <input type="text" id="title" name="title" required>
-                            </fieldset>
-                            
-                            <fieldset>
-                                <label for="author">Author: </label>
+                                 <input type="text" id="title" name="title" required>
                                 <input type="text" id="author" name="author" required>
-                            </fieldset>
-                              
-                            <fieldset>
                                 <label for="isbn">ISBN: </label>
                                 <input type="text" id="isbn" name="isbn">
-                            </fieldset>
-
-                            <fieldset>
-                                <label for="url">Image Url: </label>
                                 <input type="text" id="url" name="url">
-                            </fieldset>
-
-                            <fieldset>
-                                <label for="description">Description: </label>
                                 <textarea rows="10" id="description" name="description" required></textarea>
-                            </fieldset>
-
                             <button id="editButton" type="submit">update and return to the home page</button>
                         </form>
                 </section>
@@ -91,34 +71,14 @@
 
             <section id="newBookView">
                 <section id="newBook" class="tab-content">
-                    <h1>New Book</h1>
+                    
                     <form action="#" id="newBookForm">
-                        <fieldset>
-                            <label for="title">Title: </label>
-                            <input type="text" id="title" name="title" placeholder="Book title" required>
-                        </fieldset>
-                        
-                         <fieldset>
-                            <label for="author">Author: </label>
-                            <input type="text" id="author" name="author" placeholder="Book author" required>
-                         </fieldset>
-                        
-                        <fieldset>
-                            <label for="isbn">ISBN: </label>
-                            <input type="text" id="isbn" name="isbn" placeholder="Book ISBN">
-                        </fieldset>
-
-                        <fieldset>
-                            <label for="url">Image Url: </label>
-                            <input type="text" id="url" name="url" placeholder="Book image URL">
-                        </fieldset>
-
-                        <fieldset>
-                            <label for="description">Description: </label>
-                            <textarea rows="10" id="description" name="description" placeholder="Book description" required></textarea>
-                        </fieldset>
-
-                        <button type="submit">Submit and return to the home page</button>
+                      <input type="text" id="title" name="title" placeholder="Book title" required>
+                      <input type="text" id="author" name="author" placeholder="Book author" required>
+                      <input type="text" id="isbn" name="isbn" placeholder="ISBN">
+                      <input type="text" id="url" name="url" placeholder="Book image URL">
+                      <textarea rows="10" id="description" name="description" placeholder="Book description" required></textarea>
+                      <button type="submit">Submit and return to the home page</button>
                     </form>
                 </section>
             </section>

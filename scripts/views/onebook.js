@@ -4,6 +4,7 @@ var app = app || {};
 (function(module) {
 
   const view = {};
+  
   view.home = function(ctx, next) {
       $('#singleBookView').hide();
       $('#errorView').hide();
