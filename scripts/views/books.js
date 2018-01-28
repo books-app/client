@@ -2,67 +2,129 @@
 
 var app = app || {};
 
-
 (function(module) {
-  
-  var __API_URL__ = 'https://ryanandrii-booksapp.herokuapp.com';
-  
-  function Book(bookObject) {
-    Object.keys(bookObject).forEach( key => this[key] = bookObject[key]);
+
+  var __API_URL__ = 'https://ryanandrii-booksapp.herokuapp.com'; 
+
+  const book = {};
+
+  function Book (rawBookDataObj) {
+      Object.keys(rawBookDataObj).forEach(key => this[key] = rawBookDataObj[key]);
   }
 
-  //This is the function to render all of the books 
-  Book.prototype.toHtml = function() {
-    let template = Handlebars.compile($('#all-books').text());
-    return template(this);
-  }
-
+ 
   Book.all = [];
+  Book.single = [];
 
-  //Grabs all books
-  Book.fetchAll = callback =>
-    $.get(`${__API_URL__}/books`)
-      .then(Book.loadAll)
-      .then(console.log('hi'))
-      .then(callback);
-  //Grabs one book
-  Book.fetchOne = (ctx, callback) => {
-    $.get(`${__API_URL__}/books/${ctx.params.id}`)
-      .then(results => ctx.book = results[0])
-      .then(callback);
+ 
+  Book.prototype.toHtml = function() {
+      var template = Handlebars.compile($('#one-book').text());
+      return template(this);
   }
 
-  //This receives the book object from the function on book-view.js.
-  Book.createBook = book =>
-    $.post(`${__API_URL__}/books`, book)
-      .then(() => page('/'));
+  Book.renderAll = (ctx, next) => {
+      $('#books').empty();
+      app.Book.all.map(book => $('#books').append(book.toHtml()));
+  }
 
-  //Deletes a single book
-  Book.deleteBook = (ctx) => {
-    $.ajax({
-      url: `${__API_URL__}/books/${ctx.id}`,
-      method: 'DELETE'
-    })
-      .then(console.log('hi'))
-      .then(() => page('/'));
+  Book.loadAll = (ctx, next) => {
+    Book.all = ctx.results.map(bookObject => new Book(bookObject));
+    next();
+  }
+
+ 
+  Book.fetchAll = (ctx, next) => {
+      $.get(`${__API_URL__ }/books`)
+          .then(data => {
+              ctx.results = data;
+              next();
+          });
+  }
+
+  Book.prototype.singleHtml = function() {
+      var template = Handlebars.compile($('#individual-template').text());
+      return template(this);
+  }
+
+  Book.renderSingle = (ctx, next) => {
+      $('#individualBook').empty();
+      app.Book.single.map(book => $('#individualBook').append(book.singleHtml()));
+      $('#updateButton').attr('href', `/book/${ctx.params.id}/edit`)
+      next();
+  }
+
+  Book.loadSingle = (ctx, next) => {
+      console.log(ctx.results);
+      Book.single = [];
+      Book.single = ctx.results.map(bookObject => new Book(bookObject));
+      next();
+  }
+
+  Book.fetchSingle = (ctx, next)  => {
+      $.get(`${__API_URL__}/books/${ctx.params.id}`)
+          .then(data => {
+              ctx.results = data;
+              next();
+          });
   };
 
-  // //This updates a book
-  Book.updateBook = (ctx, book) => {
-    $.ajax({
-      url: `${__API_URL__}/books`,
-      method: 'PUT',
-      data: {
-        id: book.id,
-        title: book.title,
-        author: book.author,
-        isbn: book.isbn,
-        url: book.url,
-        description: book.description
-      }
-    })
-      .then(() => page('/'));
+  Book.prototype.addRecord = function(){
+      $.ajax({
+          url: `${__API_URL__ }/books`,
+          method: 'POST',
+          data: {
+            title: this.title,
+            author: this.author,
+            isbn: this.isbn,
+            url: this.url,
+            description: this.description
+          },
+          success: window.location = '../',
+      })
+  };
+
+  Book.prototype.deleteRecord = (ctx, next) => {
+      let id = ctx.params.id;
+      $('.bookListing').on('click', $('#deleteButton'), function() {
+          $.ajax({
+              url: `${__API_URL__}/books/${id}`,
+              method: 'DELETE',
+              success: function() {
+                  window.location = '../';
+              }
+          })
+      });
+  }
+
+// UPDATE/PUT
+  // 3rd - adds this boks values to edit form
+  Book.renderEditSingle = (ctx, next) => {
+      $('#author').val(Book.single[0].author);
+      $('#description').val(Book.single[0].description);
+      $('#url').val(Book.single[0].url);
+      $('#isbn').val(Book.single[0].isbn);
+      $('#title').val(Book.single[0].title);
+      next();
+  }
+
+  Book.prototype.updateRecord = (ctx, next) => {
+      let id = ctx.params.id;
+      console.log(id);
+      $('#updateBookForm').on('submit', function(e) {
+          e.preventDefault();
+          $.ajax({
+              url: `${__API_URL__}/books/${id}/edit`,
+              method: 'PUT',
+              data: {
+                title: $('#title').val(),
+                author: $('#author').val(),
+                isbn: $('#isbn').val(),
+                url: $('#url').val(),
+                description: $('#description').val()
+              }
+          })
+      });
   }
 
   module.Book = Book;
-})(app)
+})(app);
