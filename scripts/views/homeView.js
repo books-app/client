@@ -6,7 +6,7 @@
     homeView.init = function(ctx, next) {
         $('#singleBookView').hide();
         $('#errorView').hide();
-        $('#newBookView').hide();
+        // $('#newBookView').hide();
         $('#editBookView').hide();
         $('#homeView').show();
         next();

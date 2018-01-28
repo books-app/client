@@ -1,20 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
-        <meta charset="UTF-8">
-        <title>TTB Books</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="styles/reset.css">
         <link rel="stylesheet" href="styles/icons.css">
         <link rel="stylesheet" href="styles/base.css">
         <link rel="stylesheet" href="styles/layout.css">
         <link rel="stylesheet" href="styles/modules.css">
-        <!-- <link rel="stylesheet" href="styles/state.css"> -->
-
         <script id="book-template" type="text/x-handlebars-template">
-            <section class="bookListing" data-author="{{author}}">
-                <!-- <a href="/client/book/{{book_id}}"> -->
-                    <!-- local route below -->
+            <section class="bookListing" data="{{author}}">
                 <a href="/book/{{book_id}}">
                 <img src="{{image_url}}">
                 <div class="bookInfo">
@@ -24,171 +18,68 @@
                 </a>
             </section>
         </script>
-
         <script id="individual-template" type="text/x-handlebars-template">
-            <section class="bookListing" data-author="{{author}}" data-id="{{book_id}}">
+            <section class="bookListing" data="{{author}}" data-id="{{book_id}}">
                 <img src="{{image_url}}">
                 <div class="bookInfo">
                     <p class="bookTitle">{{title}}</p>
                     <p class="bookAuthor">{{author}}</p>
                     <p class="bookDesc">{{description}}</p>
                     <p class="isbn">{{isbn}}</p>
+                    <button id="deleteButton">Delete</button>
                 </div>
-                <button id="deleteButton">Delete</button>
             </section>
         </script>
-
-        <!-- <script id="update-template" type="text/x-handlebars-template">
-            <section id="updateBook" class="tab-content">
-                    <h1>Update Book</h1>
-                    <form action="#" id="updateBookForm">
-                        <fieldset>
-                            <label for="title">Title: </label>
-                            <input type="text" id="title" name="title" value={{title}} required>
-                        </fieldset>
-                        
-                        <fieldset>
-                            <label for="author">Author: </label>
-                            <input type="text" id="author" name="author" value={{author}} required>
-                        </fieldset>
-                        
-                        <fieldset>
-                            <label for="isbn">ISBN: </label>
-                            <input type="text" id="isbn" name="isbn" value={{isbn}}>
-                        </fieldset>
-                        <fieldset>
-                            <label for="image_url">Image Url: </label>
-                            <input type="text" id="image_url" name="image_url" value={{image_utl}}>
-                        </fieldset>
-                        <fieldset>
-                            <label for="description">Description: </label>
-                            <textarea rows="10" id="description" name="description" required>{{description}}</textarea>
-                        </fieldset>
-                        <button type="submit">update and return to the home page</button>
-                    </form>
-                </section>
-            </script> -->
-
     </head>
     <body>
-        <!-- <header>
-            <h1>Books and shit</h1>
-            <a href="/client">home</a>
-            <a href="/client/new">new</a>
-            <a href="/client/book/evwevw">individual book</a>
-            <a href="/client/sdvcewvewvwea">error</a>
-        </header> -->
-
         <header>
-            <h1>Books and shit</h1>
-            <a href="/">home</a>
+             <a href="/">home</a>
             <a href="/new">new</a>
-            <a href="/book/evwevw">individual book</a>
-            <a href="/v/c/ewvewvwea">error</a>
         </header>
         
         <main>
             <section id="homeView">
-                <section id="books" class="tab-content">
-                    <p>HOME VIEW</p>
+                <section id="books">
                 </section>
             </section>
 
             <section id="singleBookView">
-                <section id="individualBook" class="tab-content">
-                    <p>BOOK VIEW</p>
+                <section id="individualBook">
                 </section>
-                <a id="updateButton" href="/book/wadwd/edit">Edit</a>
+                <!-- <a id="updateButton" href="">Edit</a> -->
             </section>
-
             <section id="editBookView">
                 <section id="editBook" class="tab-content">
-                    <p>UPDATE BOOK VIEW</p>
-                        <form action="#" id="updateBookForm">
-                            <fieldset>
-                                <label for="title">Title: </label>
-                                <input type="text" id="title" name="title" required>
-                            </fieldset>
-                            
-                            <fieldset>
-                                <label for="author">Author: </label>
-                                <input type="text" id="author" name="author" required>
-                            </fieldset>
-                              
-                            <fieldset>
-                                <label for="isbn">ISBN: </label>
-                                <input type="text" id="isbn" name="isbn">
-                            </fieldset>
-
-                            <fieldset>
-                                <label for="image_url">Image Url: </label>
-                                <input type="text" id="image_url" name="image_url">
-                            </fieldset>
-
-                            <fieldset>
-                                <label for="description">Description: </label>
-                                <textarea rows="10" id="description" name="description" required></textarea>
-                            </fieldset>
-
-                            <button id="editButton" type="submit">update and return to the home page</button>
+                         <form  id="updateBookForm">
+                           <input type="text" id="title" name="title" required>
+                           <input type="text" id="author" name="author" required>
+                           <input type="text" id="isbn" name="isbn">
+                           <input type="text" id="image_url" name="image_url">
+                           <textarea rows="30" id="description" name="description" required></textarea>
+                           <button id="editButton" type="submit">update</button>
                         </form>
                 </section>
             </section>
 
-            <section id="errorView">
-                    <section class="errorViewContainer">
-                        <img src="images/404.jpg" alt="404 error">
-                    </section>
-            </section>
-
-            <section id="newBookView">
-                <section id="newBook" class="tab-content">
-                    <h1>New Book</h1>
-                    <form action="#" id="newBookForm">
-                        <fieldset>
-                            <label for="title">Title: </label>
-                            <input type="text" id="title" name="title" placeholder="Book title" required>
-                        </fieldset>
-                        
-                         <fieldset>
-                            <label for="author">Author: </label>
-                            <input type="text" id="author" name="author" placeholder="Book author" required>
-                         </fieldset>
-                        
-                        <fieldset>
-                            <label for="isbn">ISBN: </label>
-                            <input type="text" id="isbn" name="isbn" placeholder="Book ISBN">
-                        </fieldset>
-
-                        <fieldset>
-                            <label for="image_url">Image Url: </label>
-                            <input type="text" id="image_url" name="image_url" placeholder="Book image URL">
-                        </fieldset>
-
-                        <fieldset>
-                            <label for="description">Description: </label>
-                            <textarea rows="10" id="description" name="description" placeholder="Book description" required></textarea>
-                        </fieldset>
-
-                        <button type="submit">Submit and return to the home page</button>
-                    </form>
-                </section>
-            </section>
+            <form id="book-form">
+                    <input type="text" id="title" placeholder="book title" required>
+                    <input type="text" id="author" placeholder="author" required>
+                    <input type="text" id="isbn" placeholder="isbn" required>
+                    <input type="text" id="image_url" placeholder="url" required>
+                    <input type="text" id="descr" placeholder="description" required>
+                    <button type="submit">Add Book</button>
+                  </form> 
         </main>
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
-        <!-- <script src="scripts/vendor/jquery.js"></script> -->
+        <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
         <script src="scripts/vendor/handlebars.js"></script>
         <script src="scripts/vendor/page.js"></script>
         <script src="scripts/models/book.js"></script>
-        <!-- <script src="scripts/models/update.js"></script> -->
-        <!-- <script src="scripts/models/delete.js"></script> -->
         <script src="scripts/views/homeView.js"></script>
         <script src="scripts/views/newBookView.js"></script>
         <script src="scripts/views/singleBookView.js"></script>
         <script src="scripts/views/editBookView.js"></script>
-        <!-- <script src="scripts/views/errorView.js"></script> -->
         <script src="scripts/controllers/routes.js"></script>
     </body>
 </html>

@@ -5,7 +5,6 @@
 
     newBookView.init = function() {
         $('#singleBookView').hide();
-        $('#errorView').hide();
         $('#homeView').hide();
         $('#editBookView').hide();
         $('#newBookView').show();
@@ -21,7 +20,7 @@
           image_url: $('#image_url').val(),
           description: $('#description').val(),
         });
-        book.insertRecord();
+        Book.insertRecord();
       }
     
     module.newBookView = newBookView;
