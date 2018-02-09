@@ -1,44 +1,97 @@
 <!DOCTYPE html>
-
 <html>
-  <head>
-    <title>Books App</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="styles/base.css">
-    <link rel="stylesheet" href="styles/icons.css">
-    <link rel="stylesheet" href="styles/reset.css">
-  </head>
-  <body>
-    <div id="header">
-      <img id="icon" src="https://avatars2.githubusercontent.com/u/18607604?v=3&s=200">
-      <p id="bookapp">Book app</p>
-      
-    </div>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="styles/reset.css">
+        <link rel="stylesheet" href="styles/icons.css">
+        <link rel="stylesheet" href="styles/base.css">
+        <link rel="stylesheet" href="styles/layout.css">
+        <link rel="stylesheet" href="styles/modules.css">
+        <script id="book-template" type="text/x-handlebars-template">
+            <section class="bookListing" data="{{author}}">
+                <a href="/book/{{book_id}}">
+                <img src="{{image_url}}">
+                <div class="bookInfo">
+                    <p class="bookTitle">{{title}}</p>
+                    <p class="bookAuthor">{{author}}</p>
+                </div>
+                </a>
+            </section>
+        </script>
+        <script id="individual-template" type="text/x-handlebars-template">
+            <section class="bookListing" data="{{author}}" data-id="{{book_id}}">
+                <img src="{{image_url}}">
+                <div class="bookInfo">
+                    <p class="bookTitle">{{title}}</p>
+                    <p class="bookAuthor">{{author}}</p>
+                    <p class="bookDesc">{{description}}</p>
+                    <p class="isbn">{{isbn}}</p>
+                    <button id="deleteButton">Delete</button>
+                </div>
+            </section>
+        </script>
+    </head>
+    <body>
+        <header>
+             <a href="/">home</a>
+            <a href="/new">new</a>
+        </header>
+        
+        <main>
+            <section id="homeView">
+                <section id="books" class="tab-content">
+                </section>
+            </section>
 
-    <ul>
-      <li><a href="/client/">view all books</a></li>
-      <li><a href="/client/addbook">add a book</a></li>
-    </ul>
+            <section id="singleBookView">
+                <section id="individualBook" class="tab-content">
+                </section>
+                <a id="updateButton" href="">Edit</a>
+            </section>
+            <section id="editBookView">
+                <section id="editBook">
+                         <form  id="updateBookForm">
+                           <input type="text" id="title" name="title" required>
+                           <input type="text" id="author" name="author" required>
+                           <input type="text" id="isbn" name="isbn">
+                           <input type="text" id="image_url" name="image_url">
+                           <textarea rows="30" id="description" name="description" required></textarea>
+                           <button id="editButton" type="submit">update</button>
+                        </form>
+                </section>
+            </section>
 
-    <form id="book-form">
-      <input type="text" id="book_title" placeholder="book title" required>
-      <input type="text" id="author" placeholder="author" required>
-      <input type="text" id="isbn" placeholder="ISBN" required>
-      <input type="text" id="pic_url" placeholder="url" required>
-      <input type="text" id="descr" placeholder="description" required>
-      <button type="submit">Add Book</button>
-    </form> 
-      <section id="results"></section>
-    <div id="footer"></div>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>  
-  
-    <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
-    <script src="app.js"></script>
-
-    <script src="scripts/views/form.js"></script>
-    <script src="scripts/views/books.js"></script>
-    <script src="scripts/models/routes.js"></script>
-    <!-- <script src="scripts/views/onebook.js"></script> -->
-
-  </body>
+            <section id="newBookView">
+                <section id="newBook">
+                 <form id="newBookForm">
+                   <input type="text" id="title" name="title" placeholder="Book title" required>
+                   <input type="text" id="author" name="author" placeholder="Book author" required>
+                   <input type="text" id="isbn" name="isbn" placeholder="Book ISBN">
+                   <input type="text" id="image_url" name="image_url" placeholder="Book image URL">
+                   <textarea rows="10" id="description" name="description" placeholder="Book description" required></textarea>
+                   <button type="submit">ADD</button>
+                    </form>
+                </section>
+            </section>
+        </main>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+        <script src="scripts/vendor/handlebars.js"></script>
+        <script src="scripts/vendor/page.js"></script>
+        <script src="scripts/models/book.js"></script>
+        <script src="scripts/views/homeView.js"></script>
+        <script src="scripts/views/newBookView.js"></script>
+        <script src="scripts/views/singleBookView.js"></script>
+        <script src="scripts/views/editBookView.js"></script>
+        <script src="scripts/controllers/routes.js"></script>
+    </body>
 </html>
+
+
+
+
+
+
+
+
